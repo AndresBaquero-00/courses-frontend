@@ -1,7 +1,6 @@
 import React, { createContext, useState } from 'react';
 
-import { loginService } from '../auth/services/login.service';
-import { User } from '../auth/interfaces';
+import { type User, loginService } from '../auth';
 
 export interface AuthContextValue {
   userData: User | undefined;

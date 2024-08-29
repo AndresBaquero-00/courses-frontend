@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Button, Paper, TextField, Typography } from '@mui/material';
 
-import { AuthContext } from '../../context/AuthContext';
+import { AuthContext } from '../../context';
 
 export const LoginPage = () => {
   const navigate = useNavigate();
