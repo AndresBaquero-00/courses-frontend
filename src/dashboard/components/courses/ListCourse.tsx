@@ -20,7 +20,7 @@ interface Props {
 export const ListCourse = ({ courses, actionInCourse }: Props) => {
   return (
     <>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ maxHeight: '300px' }}>
         <Table sx={{ width: '100%' }}>
           <TableHead>
             <TableRow>
