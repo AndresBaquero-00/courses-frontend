@@ -129,8 +129,7 @@ export const CreateEditUser = ({ user, onFinished }: Props) => {
               </InputLabel>
               <Select
                 label="Rol"
-                value={user.role?.id ?? ''}
-                defaultValue={'' as unknown as number}
+                value={user.role?.id}
                 onChange={(e) =>
                   setEditedUser({ ...editedUser, role: Number(e.target.value) })
                 }

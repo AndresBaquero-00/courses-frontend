@@ -10,10 +10,22 @@ import { DashboardPage } from './dashboard';
 import { ThemeProvider } from '@mui/material';
 import { appTheme } from './themes';
 
+const GuardedRoute = ({ children }: { children: React.ReactNode }) => {
+  if (localStorage.getItem('token') === null) {
+    return <Navigate to="/login" />;
+  }
+
+  return <>{children}</>;
+};
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <DashboardPage />,
+    element: (
+      <GuardedRoute>
+        <DashboardPage />
+      </GuardedRoute>
+    ),
   },
   {
     path: '/login',

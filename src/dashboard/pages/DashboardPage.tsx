@@ -15,7 +15,7 @@ import { UserPage } from './UserPage';
 import { UserCoursesProvider } from '../../context/UserCourseContext';
 
 export const DashboardPage = () => {
-  const [value, setValue] = useState(2);
+  const [value, setValue] = useState(0);
   return (
     <UsersProvider>
       <CoursesProvider>

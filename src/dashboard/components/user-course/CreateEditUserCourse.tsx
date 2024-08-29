@@ -75,9 +75,8 @@ export const CreateEditCourse = ({ course, onFinished }: Props) => {
                 Curso
               </InputLabel>
               <Select
-                defaultValue={'' as unknown as number}
                 label="Curso"
-                value={course.course?.id ?? ''}
+                value={course.course?.id}
                 onChange={(e) =>
                   setEditedCourse({
                     ...editedCourse,
@@ -98,8 +97,7 @@ export const CreateEditCourse = ({ course, onFinished }: Props) => {
               </InputLabel>
               <Select
                 label="Usuario"
-                defaultValue={'' as unknown as number}
-                value={course.user?.id ?? ''}
+                value={course.user?.id}
                 onChange={(e) =>
                   setEditedCourse({
                     ...editedCourse,
@@ -120,8 +118,7 @@ export const CreateEditCourse = ({ course, onFinished }: Props) => {
               </InputLabel>
               <Select
                 label="Estado de Inscripción"
-                defaultValue={'' as unknown as number}
-                value={course.inscriptionStatus?.id ?? ''}
+                value={course.inscriptionStatus?.id}
                 onChange={(e) =>
                   setEditedCourse({
                     ...editedCourse,

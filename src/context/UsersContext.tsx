@@ -25,19 +25,23 @@ export const UsersContext = createContext<UsersContextValue>(
 export const UsersProvider = ({ children }: { children: React.ReactNode }) => {
   const [_users, _setUsers] = useState<User[]>([]);
   const [_roles, _setRoles] = useState<Role[]>([]);
+  const [usersLoaded, setUsersLoaded] = useState(false);
+  const [rolesLoaded, setRolesLoaded] = useState(false);
 
   const users = (forced?: boolean) => {
-    if (_users.length === 0 || forced) {
+    if ((_users.length === 0 && !usersLoaded) || forced) {
       findAllUsersService().then((u) =>
         u === null ? _setUsers([]) : _setUsers(u),
       );
+      setUsersLoaded(true);
     }
     return _users;
   };
 
   const roles = (forced?: boolean) => {
-    if (_roles.length === 0 || forced) {
+    if ((_roles.length === 0 && !rolesLoaded) || forced) {
       findAllRoles().then((r) => (r === null ? _setRoles([]) : _setRoles(r)));
+      setRolesLoaded(true);
     }
     return _roles;
   };
