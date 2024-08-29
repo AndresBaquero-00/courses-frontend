@@ -1,9 +1,9 @@
 import React, { createContext, useState } from 'react';
 
-import { type User, loginService } from '../auth';
+import { type UserLogin, loginService } from '../auth';
 
 export interface AuthContextValue {
-  userData: User | undefined;
+  userData: UserLogin | undefined;
   login: (email: string) => Promise<boolean>;
 }
 
@@ -12,7 +12,7 @@ export const AuthContext = createContext<AuthContextValue>(
 );
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [userData, setUserData] = useState<User>();
+  const [userData, setUserData] = useState<UserLogin>();
 
   const login = async (email: string) => {
     const res = await loginService(email);

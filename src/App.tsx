@@ -5,9 +5,16 @@ import {
 } from 'react-router-dom';
 
 import { LoginPage } from './auth';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider } from './context';
+import { DashboardPage } from './dashboard';
+import { ThemeProvider } from '@mui/material';
+import { appTheme } from './themes';
 
 const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <DashboardPage />,
+  },
   {
     path: '/login',
     element: <LoginPage />,
@@ -20,9 +27,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <ThemeProvider theme={appTheme}>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

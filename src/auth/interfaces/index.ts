@@ -1,9 +1,9 @@
 export interface LoginResponse {
-  user: User;
+  user: UserLogin;
   token: string;
 }
 
-export interface User {
+export interface UserLogin {
   id: number;
   firstName: string;
   lastName: string;
